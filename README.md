@@ -1,2 +1,2 @@
 # Projet-Jeunes-6.4
-CY-Tech project made by Simon CHANTHRABOUTH-LIEBBE, Charles DELPECH, Mohamed Amine KHALDI and Lise ZHENG. 
+A website made by Simon CHANTHRABOUTH-LIEBBE, Charles DELPECH, Mohamed Amine KHALDI and Lise ZHENG for the CY-Tech informatic project. 
