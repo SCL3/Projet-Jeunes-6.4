@@ -65,40 +65,6 @@ header {
 }
 
 
-.container2 {
-  text-align: center;
-  width: 80%;
-}
-
-.image-container {
-  width: 100%;
-  max-width: 900px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.image-container img {
-  width: 30%;
-  height: auto;
-  margin: 10px;
-  box-sizing: border-box;
-  display: inline-block;
-}
-
-  
-
-
-@media only screen and (max-width: 768px) {
-  .image-container img {
-    width: 45%;
-  }
-}
-
-@media only screen and (max-width: 480px) {
-  .image-container img {
-    width: 80%;
-  }
-}
 
 
 

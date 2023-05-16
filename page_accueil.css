@@ -1,0 +1,35 @@
+html, body{  
+	margin : 0;  /* Enlever la marge a droite et a gauche de l'écran */
+	height : 100%;	/* Enlever la marge a droite et a gauche de l'écran */
+	overflow : hidden;  /* Cacher la barre de défilement */
+	background : rgb(255,255,255);  /* Couleur de l'arrière plan */
+ 	background : linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(187,187,187,1) 100%); /* Couleur du dégradé */
+}
+	
+#texte1{
+	text-align : center;  /* centrer le texte */
+	font-family : 'Roboto', sans-serif;  /* police d'ecriture */
+	font-size : 40px;  /* taille de la police */
+	letter-spacing : 2px;  /* Espacement entre chaque caractère */
+	word-spacing : 3px;  /* Espacement entre chaque mot */
+	color : #0B0982;  /* Couleur de la police (bleu foncé) */
+}
+
+#entrer{
+	text-align : center;
+	font-family : 'Roboto', sans-serif;
+	font-size : 35px;
+	letter-spacing : -1px;
+	color : RED;
+	text-decoration : none;  /* Enlever la barre de lien en dessous du texte */
+}
+
+#texte3{
+	text-align : center;
+	font-family : 'Roboto', sans-serif;
+	font-size : 16px;
+	color : #898989;
+	background-color : white;
+  	height: 100%;
+}
+
