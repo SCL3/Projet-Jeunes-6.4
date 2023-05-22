@@ -1,0 +1,22 @@
+table{
+    text-align : justify;
+    font-family: sans-serif;
+    border-spacing: 40px;
+}
+table tr td{
+    width: 600px
+}
+table tr td + td{
+    width: 600px
+}
+table tr td + td + td{
+    width: 600x
+}
+
+.content h3{
+    font-size: 24px;
+}
+
+.taille p{
+    font-size: 4rem;
+}
