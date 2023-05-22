@@ -12,17 +12,25 @@ html, body{
 .rectangle{
 	display: flex;
 	width:100%;
+  padding-top: 10px;
   background-image: linear-gradient(to right top, #ffffff, #f2f2f2, 
   #e5e5e5, #d9d9d9, #cccccc, #c6c6c6, #c1c1c1, #bbbbbb, #bbbbbb
   , #bbbbbb, #bbbbbb, #bbbbbb);
 }
 
-.titre_partenaires {
+.titre {
   flex-grow : 1;
   text-align: end;
   font-size : 80px;
   margin-top: 1.2%;
   margin-right: 3%;
+
+}
+
+.phrase{
+  text-align: end;
+  font-size : 25px;
+  color:white;
 }
 
 .logo {
@@ -94,6 +102,38 @@ html, body{
 }
 
 /* Couleur des titres */
+#jeune {
+  color: #e4087e;
+}
+
+#lien_jeune{
+  background-color: #e4087e;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: white;
+}
+
+#referent {
+  color: #008000;
+}
+
+#lien_referent{
+  background-color: #008000;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: white;
+}
+
+#consultant {
+  color: #ADD8E6;
+}
+
+#lien_consultant{
+  background-color: #ADD8E6;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: white;
+}
 
 #partenaires {
   color: #454545;
