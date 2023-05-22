@@ -1,12 +1,33 @@
-header {
-	background: linear-gradient(to bottom, #f2f2f2, #dddddd);
+/* Autres pages */ 
+
+html, body{  
+	margin : 0;  /* Enlever la marge a droite et a gauche de l'écran */
+	height : 100%;	/* Enlever la marge a droite et a gauche de l'écran */
+	width : 100%;
+  overflow : hidden;  /* Cacher la barre de défilement */
+  font-family : 'Roboto', sans-serif;  /* police d'ecriture */
+	/*overflow : hidden;   Cacher la barre de défilement */
+}
+
+.rectangle{
 	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 20px;
+	width:100%;
+  background-image: linear-gradient(to right top, #ffffff, #f2f2f2, 
+  #e5e5e5, #d9d9d9, #cccccc, #c6c6c6, #c1c1c1, #bbbbbb, #bbbbbb
+  , #bbbbbb, #bbbbbb, #bbbbbb);
+}
+
+.titre_partenaires {
+  flex-grow : 1;
+  text-align: end;
+  font-size : 80px;
+  margin-top: 1.2%;
+  margin-right: 3%;
 }
 
 .logo {
+	margin-left: 15%;
+	margin-top: 6%;
 	margin-bottom: 10px;
 }
 
@@ -15,23 +36,27 @@ header {
 }
 
 .menu {
-	background-color: #666666;
-	width: 100%;
-	height: 50px;
+  background-image: linear-gradient(to bottom, #bbbbbb, #c8c8c8, #d4d4d4, #e1e1e1, #eeeeee, #eeeeee, #eeeeee, #eeeeee, #e1e1e1, #d4d4d4, #c8c8c8, #bbbbbb);
+	width: 50%;
+	height: 6%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	margin-left: auto;
+  margin-right: auto;
+
 }
 
 .menu ul {
 	list-style: none;
 	display: flex;
-	margin: 0;
-	padding: 0;
+	margin: 5px;
 }
 
 .menu li {
-	margin: 0 20px;
+  font-size: 30px;
+	margin-left: 35px;
+  margin-right: 35px;
 }
 
 .menu a {
@@ -39,9 +64,7 @@ header {
 	text-decoration: none;
 }
 
-.content {
-	margin: 50px;
-}
+
 
 .content ul{
     align-self: center;
@@ -64,6 +87,24 @@ header {
     background: #008000;
 }
 
+.image_partenaires > img{
+  width:  100px;
+  height: 100px;
+
+}
+
+/* Couleur des titres */
+
+#partenaires {
+  color: #454545;
+}
+
+#lien_partenaires{
+  background-color: #454545;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: white;
+}
 
 
 
@@ -73,7 +114,11 @@ header {
 /* Style pour le contenu de la page référent */
 
 .content {
-  width: 80%;
+  background-image: linear-gradient(to bottom, #ffffff, #ffffff, #ffffff,
+   #ffffff, #ffffff, #f9f9f9, #f4f4f4, #eeeeee, #e1e1e1, #d4d4d4,
+    #c8c8c8, #bbbbbb);
+  height:80%;
+  width: 100%;
   margin: 0 auto;
   padding-top: 50px;
   text-align: center;
