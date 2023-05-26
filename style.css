@@ -257,34 +257,59 @@ table tr td + td + td{
   left: 57%;
   width: 200px;
   height : 200px;
-  font-size: 25px;
-  color: white;
   border: 4px solid #22c3f8;
   background-image: linear-gradient(to left, #22c3f8, #22c3f8, #8bceff,
   #8bceff, #ffffff);
 }
 
+.titreCase {
+  position: absolute;
+  top:15px;
+  left: 25px;
+}  
+
 .partie1{
   width: 200px;
-  height : 135px;
+  height : 100px;
+  font-size: 25px;
+  color: white;
+}
+
+.partie2{
+  width: 200px;
+  height : 100px;
+  font-size: 25px;
+  color: white;
+}
+
+.partie3{
+  width: 200px;
+  height : 100px;
+  font-size: 25px;
+  color: white;
+}
+
+.partie1a{
+  width: 200px;
+  height : 100px;
   font-size: 15px;
   text-align: justify;
   color: gray;
   background: #fcacd6;
 }
 
-.partie2{
+.partie2a{
   width: 200px;
-  height : 135px;
+  height : 100px;
   font-size: 15px;
   text-align: justify;
   color: gray;
   background: #bfff77;
 }
 
-.partie3{
+.partie3a{
   width: 200px;
-  height : 135px;
+  height : 100px;
   font-size: 15px;
   text-align: justify;
   color: gray;
