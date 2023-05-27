@@ -79,7 +79,7 @@ html, body{
 
 
 
-.content ul{
+.contenu ul{
     align-self: center;
 }
 
@@ -134,30 +134,18 @@ html, body{
   	color: white;
 }
 
-
-
-
-
-
-/* Style pour le contenu de la page référent */
-
-.content {
+.contenu {
   background-image: linear-gradient(to bottom, #ffffff, #ffffff, #ffffff,
    #ffffff, #ffffff, #f9f9f9, #f4f4f4, #eeeeee, #e1e1e1, #d4d4d4,
     #c8c8c8, #bbbbbb);
   height:80%;
   width: 100%;
   margin: 0 auto;
-  padding-top: 50px;
+  padding-top: 40px;
   text-align: center;
+  font-size: 26px;
 }
 
-
-.content h2 {
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 30px;
-}
 
 /* Style pour le formulaire */
 
@@ -219,10 +207,6 @@ table tr td + td{
 table tr td + td + td{
   width: 600x;
   vertical-align: top;
-}
-
-.content h3{
-  font-size: 24px;
 }
 
 .taille p{
