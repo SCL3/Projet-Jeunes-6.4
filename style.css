@@ -4,18 +4,18 @@ html, body{
 	margin : 0;  /* Enlever la marge a droite et a gauche de l'écran */
 	height : 100%;	/* Enlever la marge a droite et a gauche de l'écran */
 	width : 100%;
-  /*overflow : hidden;  /* Cacher la barre de défilement */
-  font-family : 'Roboto', sans-serif;  /* police d'ecriture */
-	/*overflow : hidden;   Cacher la barre de défilement */
+ 	/*overflow : hidden;  /* Cacher la barre de défilement */
+  	font-family : 'Roboto', sans-serif;  /* police d'ecriture */
 }
 
 .rectangle{
 	display: flex;
+	position:relative;
 	width:100%;
-  padding-top: 10px;
-  background-image: linear-gradient(to right top, #ffffff, #f2f2f2, 
-  #e5e5e5, #d9d9d9, #cccccc, #c6c6c6, #c1c1c1, #bbbbbb, #bbbbbb
-  , #bbbbbb, #bbbbbb, #bbbbbb);
+  	padding-top: 10px;
+ 	background-image: linear-gradient(to right top, #ffffff, #f2f2f2, 
+  	#e5e5e5, #d9d9d9, #cccccc, #c6c6c6, #c1c1c1, #bbbbbb, #bbbbbb
+  	, #bbbbbb, #bbbbbb, #bbbbbb);
 }
 
 .titre {
@@ -28,9 +28,14 @@ html, body{
 }
 
 .phrase{
-  text-align: end;
-  font-size : 25px;
-  color:white;
+ 	position: absolute;
+   	bottom:0;
+   	right: 3%;
+	display:flex;
+ 	text-align: right;
+ 	font-size : 40px;
+ 	font-weight: 300;
+ 	color:white;
 }
 
 .logo {
@@ -44,14 +49,14 @@ html, body{
 }
 
 .menu {
-  background-image: linear-gradient(to bottom, #bbbbbb, #c8c8c8, #d4d4d4, #e1e1e1, #eeeeee, #eeeeee, #eeeeee, #eeeeee, #e1e1e1, #d4d4d4, #c8c8c8, #bbbbbb);
+ 	background-image: linear-gradient(to bottom, #bbbbbb, #c8c8c8, #d4d4d4, #e1e1e1, #eeeeee, 							#eeeeee, #eeeeee, #eeeeee, #e1e1e1, #d4d4d4, #c8c8c8, #bbbbbb);
 	width: 50%;
 	height: 6%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	margin-left: auto;
-  margin-right: auto;
+  	margin-right: auto;
 
 }
 
@@ -86,47 +91,47 @@ html, body{
 
 /* Couleur des titres */
 #jeune {
-  color: #e4087e;
+ 	color: #e4087e;
 }
 
 #lien_jeune{
-  background-color: #e4087e;
-  padding-left: 10px;
-  padding-right: 10px;
-  color: white;
+  	background-color: #e4087e;
+  	padding-left: 10px;
+  	padding-right: 10px;
+ 	 color: white;
 }
 
 #referent {
-  color: #008000;
+  	color: #008000;
 }
 
 #lien_referent{
-  background-color: #008000;
-  padding-left: 10px;
-  padding-right: 10px;
-  color: white;
+  	background-color: #008000;
+  	padding-left: 10px;
+  	padding-right: 10px;
+  	color: white;
 }
 
 #consultant {
-  color: #ADD8E6;
+  	color: #ADD8E6;
 }
 
 #lien_consultant{
-  background-color: #ADD8E6;
-  padding-left: 10px;
-  padding-right: 10px;
-  color: white;
+  	background-color: #ADD8E6;
+  	padding-left: 10px;
+  	padding-right: 10px;
+  	color: white;
 }
 
 #partenaires {
-  color: #454545;
+  	color: #454545;
 }
 
 #lien_partenaires{
-  background-color: #454545;
-  padding-left: 10px;
-  padding-right: 10px;
-  color: white;
+  	background-color: #454545;
+  	padding-left: 10px;
+  	padding-right: 10px;
+  	color: white;
 }
 
 
