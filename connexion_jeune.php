@@ -1,3 +1,3 @@
 <?php
-	echo "rien pour l'instant";
+	echo "Les messages d'erreurs seront ici !";
 ?>

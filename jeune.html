@@ -23,7 +23,7 @@
 						document.getElementById("test").innerHTML = "Recu !" + xhr.responseText;
 					}
 					else{
-						document.write(xhr.status + "  " + xhr.readyState);
+						document.write("Erreur code : " + xhr.status + "<br> Vous avez surement oublié de créer un serveur !");
 						//document.getElementById("test").textContent = "Error code : " + xhr.status;
 					}
 				
@@ -57,21 +57,41 @@
 
 	<div class="contenu" id="jeune">
 		<p> Décrivez votre expérience et mettez en avant ce que vous en avez retiré. </p>
-		<br>
-		
-		<form class="connexion">
-			<h2>Connexion</h2>
-				<input type="text" name="username" placeholder="username" required>
-				<input type="password" name="password" placeholder="password" required>
-				<input type="button" value="Se connecter" onclick="envoyer()">
-		<div>
-			<p id="test"> </p>
+		<div class="login_parent">
+			<form class="login">
+				<div class="connexion">
+					<h2>Connexion</h2>
+					Email : <input type="email" name="email" placeholder="Email" required><br>
+					Mot de passe : <input type="password" name="mdp" placeholder="Mot de passe" required><br>
+					<p id="test"> </p>
+					<input type="button" name="connexion" value="Se connecter" onclick="envoyer()"><br>
+				</div>
+			</form>
+			<div class="barre_milieu"></div>
+			<form class="login">
+				<div class="inscription">
+					<h2> Inscription </h2>
+					<label>Prénom : </label>
+					<input type="text" placeholder="Prénom" /> <br>
+					<label>Nom : </label>
+					<input type="text" placeholder="Nom" /> <br>
+					<label>Email : </label>
+					<input type="email" placeholder="Email" /> <br>
+					<label> Date de Naissance</label>
+					<input type="date" placeholder=""/> <br>
+					<label>Mot de Passe</label>
+					<input type="password" placeholder="Mot de passe" /> <br>
+					<label>Confirmer votre Mot de Passe</label>
+					<input type="password" placeholder="Confirmez le mot de passe" /> <br>
+					<p id="test"> </p>
+					<input type="button" value="Envoyer" />
+				</div>
+			</form>
 		</div>
 		
 		<br>
-		<p id="signin_jeune">
-			Pas de compte ? Inscrivez-vous <a href="signup.html">ICI</a>
-	  	</p>
+	
 	</div>
+
 	</body>
 </html>
