@@ -22,7 +22,7 @@ html, body{
   flex-grow : 1;
   text-align: end;
   font-size : 80px;
-  margin-top: 1.2%;
+  margin-top: 0.7%;
   margin-right: 3%;
 
 }
@@ -57,6 +57,9 @@ html, body{
 	align-items: center;
 	margin-left: auto;
   	margin-right: auto;
+  	padding-right: 50px;
+  	padding-left: 30px;
+  	text-align: center;
 
 }
 
@@ -91,33 +94,33 @@ html, body{
 
 /* Couleur des titres */
 #jeune {
- 	color: #e4087e;
+ 	color: #ef037f;
 }
 
 #lien_jeune{
-  	background-color: #e4087e;
+  	background-color: #ef037f;
   	padding-left: 10px;
   	padding-right: 10px;
  	 color: white;
 }
 
 #referent {
-  	color: #008000;
+  	color: #1bbc00;
 }
 
 #lien_referent{
-  	background-color: #008000;
+  	background-color: #1bbc00;
   	padding-left: 10px;
   	padding-right: 10px;
   	color: white;
 }
 
 #consultant {
-  	color: #ADD8E6;
+  	color: #006fb0;
 }
 
 #lien_consultant{
-  	background-color: #ADD8E6;
+  	background-color: #006fb0;
   	padding-left: 10px;
   	padding-right: 10px;
   	color: white;
@@ -180,8 +183,8 @@ form textarea {
 
 
 
-form button[type="submit"] {
-  background-color: #e4087e;
+form input[type="submit"] {
+  background-color: #ef037f;
   color: #FFFFFF;
   border: none;
   height: 30px;
@@ -201,7 +204,7 @@ form input[type="submit"]:hover {
 table{
   text-align : justify;
   font-family: sans-serif;
-  border-spacing: 40px;
+  border-spacing: 40px; 
 }
 table tr td{
   vertical-align: top;
@@ -229,9 +232,9 @@ table tr td + td + td{
   font-size: 25px;
   text-align: center;
   color: white;
-  border: 4px solid #e4087e;
-  background-image: linear-gradient(to left, #e4087e, #e4087e,
-  #e4087e, #e56bb7, #ffffff);
+  border: 4px solid #ef037f;
+  background-image: linear-gradient(to left, #ef037f, #ef037f,
+  #ef037f, #e56bb7, #ffffff);
 }
 
 .carre2{
@@ -242,8 +245,8 @@ table tr td + td + td{
   height : 200px;
   font-size: 25px;
   color: white;
-  border: 4px solid #559e27;
-  background-image: linear-gradient(to left, #008000, #008000,
+  border: 4px solid #1bbc00;
+  background-image: linear-gradient(to left, #1bbc00, #1bbc00,
   #559e27, #8abc48, #ecf98f);
 }
 

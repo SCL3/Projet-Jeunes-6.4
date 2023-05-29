@@ -2,10 +2,40 @@
 <html>
 <meta charset="UTF-8">
 <head>
-
 	<title>Page Jeune</title>
 	<link rel="icon" type="image/png" href="icone1.png">
 	<link rel="stylesheet" type="text/css" href="style.css">
+	<script>  <!-- Script pour AJAX -->
+		function envoyer(){
+			// Creation de l'instance (objet)
+			if(window.XMLHttpRequest){  // On verifie si on est bien sur les nouvelles versions d'internet (Firefox, Safari, Chrome...)
+				var xhr = new XMLHttpRequest();  // On cree une instance
+			}
+			else if (window.ActiveXObject){  // Sinon, on est sur les anciennes versions d'internet explorer (IE5, IE6)
+				var xhr = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			
+			// Traitement de la reponse
+			xhr.onreadystatechange = function(){
+				if(xhr.readyState === 4){  // L'etat 4 signifie que la demande est terminee et la reponse est prete
+					if(xhr.status === 200){  // Le status de la requete est OK (404 signifie introuvable)
+						//document.write(xhr.status + "  " + xhr.readyState);
+						document.getElementById("test").innerHTML = "Recu !" + xhr.responseText;
+					}
+					else{
+						document.write(xhr.status + "  " + xhr.readyState);
+						//document.getElementById("test").textContent = "Error code : " + xhr.status;
+					}
+				
+				}
+			};
+			
+			xhr.open("POST", "connexion_jeune.php", true);
+			xhr.send();  // null pour une requete get
+		}
+
+
+	</script>
 </head>
 <body>
 	<header>
@@ -29,12 +59,14 @@
 		<p> Décrivez votre expérience et mettez en avant ce que vous en avez retiré. </p>
 		<br>
 		
-		<form class="connexion" action="connexion_jeune.php" method="post">
+		<form class="connexion">
 			<h2>Connexion</h2>
 				<input type="text" name="username" placeholder="username" required>
 				<input type="password" name="password" placeholder="password" required>
-				<button type="submit" value="login"> Se connecter </button>
-	 	</form>
+				<input type="button" value="Se connecter" onclick="envoyer()">
+		<div>
+			<p id="test"> </p>
+		</div>
 		
 		<br>
 		<p id="signin_jeune">

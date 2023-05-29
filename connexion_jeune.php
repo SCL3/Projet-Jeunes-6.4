@@ -1,6 +1,3 @@
 <?php
-	echo "rien pour l'instant"
-
-
-
+	echo "rien pour l'instant";
 ?>
