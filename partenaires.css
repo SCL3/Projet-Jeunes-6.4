@@ -1,14 +1,13 @@
-   .image-container {
-       width: 100%;
-       max-width: 500px;
-       margin: 0 auto;
-       text-align: center;
-   }
+table{
+    display: flex;
+    justify-content: center;
+}
 
-   .image-container img {
-       width: 100%;
-       height: auto;
-       margin: 100px;
-       box-sizing: border-box;
-       display: inline-block;
-   }
+td{
+    padding: 25px;
+}
+
+.image-partenaire{
+    width: 250px;
+    height: 200px;
+}

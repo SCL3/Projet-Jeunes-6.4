@@ -4,7 +4,7 @@ html, body{
 	margin : 0;  /* Enlever la marge a droite et a gauche de l'écran */
 	height : 100%;	/* Enlever la marge a droite et a gauche de l'écran */
 	width : 100%;
- 	/*overflow : hidden;  /* Cacher la barre de défilement */
+ 	overflow : hidden;  /* Cacher la barre de défilement */
   font-family : 'Roboto', sans-serif;  /* police d'ecriture */
 }
 
@@ -12,7 +12,7 @@ html, body{
 	display: flex;
 	position:relative;
 	width:100%;
-  	padding-top: 10px;
+  padding-top: 10px;
  	background-image: linear-gradient(to right top, #ffffff, #f2f2f2, 
   	#e5e5e5, #d9d9d9, #cccccc, #c6c6c6, #c1c1c1, #bbbbbb, #bbbbbb
   	, #bbbbbb, #bbbbbb, #bbbbbb);
@@ -228,6 +228,16 @@ form input[type="submit"]:hover {
 }
 
 /*Style projet jeunes index*/
+.taille p{
+  font-size: 4rem;
+}
+
+.contenu-index{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
 table{
   text-align : justify;
   font-family: sans-serif;
@@ -246,16 +256,13 @@ table tr td + td + td{
   vertical-align: top;
 }
 
-.taille p{
-  font-size: 4rem;
+.rectangle-jeune{
+  display: flex;
+  justify-content: center;
+  text-align: center;
 }
-
 .carre1{
-  position: absolute;
-  bottom: 5%;
-  left: 27%;
-  width: 200px;
-  height : 200px;
+  margin-right: 100px;
   font-size: 25px;
   text-align: center;
   color: white;
@@ -265,11 +272,7 @@ table tr td + td + td{
 }
 
 .carre2{
-  position: absolute;
-  bottom: 5%;
-  left: 42%;
-  width: 200px;
-  height : 200px;
+  margin-right: 100px;
   font-size: 25px;
   color: white;
   border: 4px solid #1bbc00;
@@ -278,39 +281,31 @@ table tr td + td + td{
 }
 
 .carre3{
-  position: absolute;
-  bottom: 5%;
-  left: 57%;
-  width: 200px;
-  height : 200px;
   border: 4px solid #22c3f8;
   background-image: linear-gradient(to left, #22c3f8, #22c3f8, #8bceff,
   #8bceff, #ffffff);
 }
 
-.titreCase {
-  position: absolute;
-  top:15px;
-  left: 25px;
-}  
-
 .partie1{
+  margin-top: 20px;
   width: 200px;
-  height : 100px;
+  height : 80px;
   font-size: 25px;
   color: white;
 }
 
 .partie2{
+  margin-top: 20px;
   width: 200px;
-  height : 100px;
+  height : 80px;
   font-size: 25px;
   color: white;
 }
 
 .partie3{
+  margin-top: 20px;
   width: 200px;
-  height : 100px;
+  height : 80px;
   font-size: 25px;
   color: white;
 }
@@ -345,31 +340,19 @@ table tr td + td + td{
 /*Style projet jeunes index fin*/
 
 /*Style partenaires*/
-/*
-@media only screen and (max-width: 768px) {
-  .image-container img {
-      width: 50%;
-  }
+
+table{
+  display: flex;
+  justify-content: center;
 }
 
-@media only screen and (max-width: 480px) {
-  .image-container img {
-      width: 80%;
-  }
+td{
+  padding: 25px;
 }
 
-.image-container {
-  width: 100%;
-  max-width: 900px;
-  margin: 0 auto;
-  text-align: center;
+.image-partenaire{
+  width: 250px;
+  height: 200px;
 }
 
-.image-container img {
-  width: 30%;
-  height: auto;
-  margin: 10px;
-  box-sizing: border-box;
-  display: inline-block;
-}
-*/
+/*Style partenaires fin*/
