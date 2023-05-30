@@ -1,0 +1,14 @@
+   .image-container {
+       width: 100%;
+       max-width: 500px;
+       margin: 0 auto;
+       text-align: center;
+   }
+
+   .image-container img {
+       width: 100%;
+       height: auto;
+       margin: 100px;
+       box-sizing: border-box;
+       display: inline-block;
+   }

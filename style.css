@@ -4,7 +4,7 @@ html, body{
 	margin : 0;  /* Enlever la marge a droite et a gauche de l'écran */
 	height : 100%;	/* Enlever la marge a droite et a gauche de l'écran */
 	width : 100%;
- 	overflow : hidden;  /* Cacher la barre de défilement */
+ 	/*overflow : hidden;  /* Cacher la barre de défilement */
   font-family : 'Roboto', sans-serif;  /* police d'ecriture */
 }
 
@@ -343,3 +343,33 @@ table tr td + td + td{
 }
 
 /*Style projet jeunes index fin*/
+
+/*Style partenaires*/
+/*
+@media only screen and (max-width: 768px) {
+  .image-container img {
+      width: 50%;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .image-container img {
+      width: 80%;
+  }
+}
+
+.image-container {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.image-container img {
+  width: 30%;
+  height: auto;
+  margin: 10px;
+  box-sizing: border-box;
+  display: inline-block;
+}
+*/
