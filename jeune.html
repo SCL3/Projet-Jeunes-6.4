@@ -36,8 +36,13 @@
 
 		function inscript(){  // Fonction inscription
 			// Recuperation des donnees 
-			var prenom = document.querySelector(".inscription input[name='prenom']").value;
+			var prenom = document.querySelector(".inscription input[name='prenom']").value;  // Selectione le premier element avec le selecteur ".inscription", input avec le nom="prenom	"
 			var nom = document.querySelector(".inscription input[name='nom']").value;
+			var email = document.querySelector(".inscription input[name='email']").value;
+			var date = document.querySelector(".inscription input[name='date']").value;
+			var mdp1 = document.querySelector(".inscription input[name='mdp1']").value;
+			var mdp2 = document.querySelector(".inscription input[name='mdp2']").value;
+
 
 			// Creation de l'instance (objet)
 			if(window.XMLHttpRequest){  // On verifie si on est bien sur les nouvelles versions d'internet (Firefox, Safari, Chrome...)
@@ -62,12 +67,13 @@
 				}
 			};
 			
-			xhr.open("POST", "inscription_jeune.php", true);
-			xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");  // definit l'entete de la requete HTTP
+			xhr.open("POST", "inscription_jeune.php", true);  // Ouvre le fichier php, avec la méthode POST, en mode ASYNCHRONE
+			xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");  // Définit l'entête de la requête HTTP
 
-			// Prepare the data to be sent
-			var donnee = "prenom=" + encodeURIComponent(prenom) + "&nom=" + encodeURIComponent(nom);
-;  // encode les donnees pour qu'elles soient envoyees
+			// Prépare les données pour les envoyées à la page php sous forme de lien
+			var donnee = "prenom=" + encodeURIComponent(prenom) + "&nom=" + encodeURIComponent(nom) + "&email=" + encodeURIComponent(email) 
+			+ "&date=" + encodeURIComponent(date) + "&mdp1=" + encodeURIComponent(mdp1) + "&mdp2=" + encodeURIComponent(mdp2);
+			// encode les donnees pour qu'elles soient envoyees
 			xhr.send(donnee);  // null pour une requete get
 		}
 
@@ -101,7 +107,7 @@
 					Email : <input type="email" name="email" placeholder="Email" required><br>
 					Mot de passe : <input type="password" name="mdp" placeholder="Mot de passe" required><br>
 					<p id="texte1"> </p>
-					<input type="submit" name="connexion" value="Se connecter" onclick="connex()"><br>
+					<input type="button" name="connexion" value="Se connecter" onclick="connex()"><br>
 				</div>
 			</form>
 			<div class="barre_milieu"></div>
@@ -113,13 +119,13 @@
 					<label>Nom : </label>
 					<input type="text" name ="nom" placeholder="Nom" required/> <br>
 					<label>Email : </label>
-					<input type="email" placeholder="Email" required/> <br>
-					<label> Date de Naissance</label>
-					<input type="date" placeholder="" required/> <br>
+					<input type="email" name ="email" placeholder="Email" required/> <br>
+					<label> Date de naissance</label>
+					<input type="date" name ="date" placeholder="" required/> <br>
 					<label>Mot de Passe</label>
-					<input type="password" placeholder="Mot de passe" required/> <br>
+					<input type="password" name ="mdp1" placeholder="Mot de passe" required/> <br>
 					<label>Confirmer votre Mot de Passe</label>
-					<input type="password" placeholder="Confirmez le mot de passe" required/> <br>
+					<input type="password" name ="mdp2" placeholder="Confirmez le mot de passe" required/> <br>
 					<p id="texte2"> </p>
 					<input type="button" name="inscription" value="S'inscrire" onclick="inscript()"/>
 				</div>

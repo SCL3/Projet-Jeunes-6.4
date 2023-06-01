@@ -153,7 +153,7 @@ html, body{
 
 .login_parent{
   display: flex;
-	position:relative;
+  position:relative;
   border-radius: 10px;
   width:95%;
   font-size:23px;
@@ -181,7 +181,7 @@ html, body{
 .inscription{
   position:absolute;
   width:49%;
-  margin-left:49%;
+  margin-left:51%;
   
 }
 
