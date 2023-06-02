@@ -99,13 +99,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {  // Si la requête est bien reçu
     if(test($prenom, $nom, $email, $date, $mdp1, $mdp2) == 1){
       // On créer la base de donnée SQLite
       try{
-        $pdo = new PDO('sqlite:'.dirname(__FILE__).'/identifiant.sqlite');  //   
-        $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // ERRMODE_WARNING | ERRMODE_EXCEPTION | ERRMODE_SILENT (Erreur SQL -> Erreur php)
+        $sql = new PDO('sqlite:'.dirname(__FILE__).'/identifiant.sqlite');  //   
+        $sql->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+        $sql->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // ERRMODE_WARNING | ERRMODE_EXCEPTION | ERRMODE_SILENT (Erreur SQL -> Erreur php)
       } catch(Exception $e) {
         echo "Impossible d'accéder à la base de données SQLite : ".$e->getMessage();
         die();
       }
+      // Créer le tableau si il n'existe pas
+      $sql->query("CREATE TABLE IF NOT EXISTS posts (  
+        id            INTEGER         PRIMARY KEY AUTOINCREMENT, 
+        prenom        VARCHAR( 100 ),  
+        nom        VARCHAR( 100 ),
+        email        VARCHAR( 100 ),
+        naissance     VARCHAR( 100 ),
+        mdp VARCHAR( 100 )
+      );");
     }
     
     
