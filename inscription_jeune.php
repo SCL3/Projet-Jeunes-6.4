@@ -96,30 +96,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {  // Si la requête est bien reçu
     $mdp1 = $_POST["mdp1"];
     $mdp2 = $_POST["mdp2"];
     
-    if(test($prenom, $nom, $email, $date, $mdp1, $mdp2) == 1){
-      // On créer la base de donnée SQLite
-      try{
-        $sql = new PDO('sqlite:'.dirname(__FILE__).'/identifiant.sqlite');  //   
-        $sql->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-        $sql->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // ERRMODE_WARNING | ERRMODE_EXCEPTION | ERRMODE_SILENT (Erreur SQL -> Erreur php)
-      } catch(Exception $e) {
-        echo "Impossible d'accéder à la base de données SQLite : ".$e->getMessage();
-        die();
+	$age = calculateAge($date); // Appel d'une fonction pour calculer l'âge à partir de la date de naissance
+    
+    if ($age >= 14 && $age <= 30) { // Vérification de l'âge entre 14 et 30 ans
+      if(test($prenom, $nom, $email, $date, $mdp1, $mdp2) == 1){
+        echo "Création du compte";
+        // Autres actions à effectuer pour l'inscription réussie
       }
-      // Créer le tableau si il n'existe pas
-      $sql->query("CREATE TABLE IF NOT EXISTS posts (  
-        id            INTEGER         PRIMARY KEY AUTOINCREMENT, 
-        prenom        VARCHAR( 100 ),  
-        nom        VARCHAR( 100 ),
-        email        VARCHAR( 100 ),
-        naissance     VARCHAR( 100 ),
-        mdp VARCHAR( 100 )
-      );");
+    } elseif ($age < 14) {
+      echo "Vous êtes trop jeune pour vous inscrire.";
+    } else {
+      echo "Vous êtes trop vieux pour vous inscrire.";
     }
-    
-    
   }
+}
 
+// Fonction pour calculer l'âge à partir de la date de naissance
+function calculateAge($date) {
+  $birthDate = new DateTime($date);
+  $today = new DateTime();
+  $age = $today->diff($birthDate)->y;
+  return $age;
+}
   
 
  
@@ -150,5 +148,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {  // Si la requête est bien reçu
     $mdp2 = $_POST["mdp2"];
     echo "Mdp2 : " . $mdp2 ."<br>";
   }*/
-}
+
 ?>
