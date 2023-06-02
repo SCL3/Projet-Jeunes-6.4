@@ -97,7 +97,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {  // Si la requête est bien reçu
     $mdp2 = $_POST["mdp2"];
     
     if(test($prenom, $nom, $email, $date, $mdp1, $mdp2) == 1){
-      echo "création du compte";
+      // On créer la base de donnée SQLite
+      try{
+        $pdo = new PDO('sqlite:'.dirname(__FILE__).'/identifiant.sqlite');  //   
+        $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // ERRMODE_WARNING | ERRMODE_EXCEPTION | ERRMODE_SILENT (Erreur SQL -> Erreur php)
+      } catch(Exception $e) {
+        echo "Impossible d'accéder à la base de données SQLite : ".$e->getMessage();
+        die();
+      }
     }
     
     
