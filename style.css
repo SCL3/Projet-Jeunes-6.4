@@ -362,4 +362,14 @@ td{
   height: 200px;
 }
 
+#partenaires-texte{
+  font-size: 25px;
+  text-align: center;
+  color: gray;
+}
+
+#texte-couleur{
+  color: #022164;
+}
+
 /*Style partenaires fin*/
