@@ -228,6 +228,18 @@ form input[type="submit"]:hover {
 }
 
 /*Style projet jeunes index*/
+
+h3{
+  font-size: 30px;
+}
+#texte-jeune-index{
+  font-size: 20px;
+}
+
+tbody{
+  text-align: justify;
+}
+
 table{
   text-align : justify;
   font-family: sans-serif;
