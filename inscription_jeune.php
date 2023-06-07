@@ -1,4 +1,6 @@
 <?php
+include 'envoi_email.php'; // Inclure le fichier d'envoi d'e-mail
+
 
 // Fonction pour calculer l'âge à partir de la date de naissance
 function calculateAge($date) {
@@ -44,6 +46,7 @@ function test(string $prenom, string $nom, string $email, string $date, string $
     return 0;
   }
 
+  // Sécurité du mot de passe 
   if($mdp1 == ""){
     echo "Veuillez inscrire un mot de passe";
     return 0;
@@ -53,7 +56,7 @@ function test(string $prenom, string $nom, string $email, string $date, string $
     return 0;
   }
   if($mdp1 != $mdp2){
-    echo "Le mot de passe de vérification est différent";  //echo "Le mot de passe doit contenir plus de 8 caractères"
+    echo "Le mot de passe de vérification est différent"; 
     return 0;
   }
   if(strlen($mdp1) <= 7){
@@ -103,9 +106,6 @@ function test(string $prenom, string $nom, string $email, string $date, string $
   return 1;
 }
 
-require_once 'envoi_email.php'; // Inclure le fichier d'envoi d'e-mail
-
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {  // Si la requête est bien reçu
   // Vérifier si toutes les données a été envoyé
   if (isset($_POST["prenom"], $_POST["nom"], $_POST["email"], $_POST["date"], $_POST["mdp1"], $_POST["mdp2"])){
@@ -119,20 +119,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {  // Si la requête est bien reçu
 
     if(test($prenom, $nom, $email, $date, $mdp1, $mdp2) == 1){
       // Connexion à la base de données SQLite
-      $database = new PDO('sqlite:users.db');
+      $bd = new PDO('sqlite:users.sqlite');  // base de données sqlite3
       // Création de la table si elle n'existe pas déjà
-      $database->exec('CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT, prenom TEXT, nom TEXT, email TEXT, date_naissance TEXT, mdp TEXT)');
+      $bd->exec('CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT, prenom TEXT, nom TEXT, email TEXT, date_naissance TEXT, mdp TEXT)');
       // Insertion des données dans la table
-      $database->exec("INSERT INTO users (prenom, nom, email, date_naissance, mdp) VALUES ('$prenom', '$nom', '$email', '$date', '$mdp1')");
-      
-      // Envoi du mail de confirmation
-      
-      require_once 'envoi_email.php'; // Inclure le fichier d'envoi d'e-mail
-      
+      $bd->exec("INSERT INTO users (prenom, nom, email, date_naissance, mdp) VALUES ('$prenom', '$nom', '$email', '$date', '$mdp1')");
+
       $subject = "Confirmation d'inscription";
       $message = "Bonjour $prenom,\n\nMerci de vous être inscrit sur notre site.\n\nVeuillez cliquer sur le lien suivant pour confirmer votre adresse e-mail : [lien de confirmation].\n\nCordialement,\nL'équipe du site";
-      $headers = "From: no-reply@monsite.com";
-      // mail($email, $subject, $message, $headers);
+      $headers = array(
+        'From' => 'webmaster@example.com',
+        'Reply-To' => 'webmaster@example.com',
+        'X-Mailer' => 'PHP/' . phpversion()
+     );
+      mail($email, $subject, $message, $headers);
       
       echo "Création du compte. Un email de confirmation a été envoyé à votre adresse.";
       // Autres actions à effectuer pour l'inscription réussie
