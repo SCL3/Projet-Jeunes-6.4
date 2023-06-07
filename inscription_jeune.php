@@ -2,7 +2,7 @@
 
 function test(string $prenom, string $nom, string $email, string $date, string $mdp1, string $mdp2){
   // Fonction qui vérifie toute les données en fonction de chaques conditions
-
+  
   // Vérifie que chaque valeur ne sont pas vide
   if($prenom == ""){
     echo "Veuillez inscrire votre prénom";
@@ -84,6 +84,8 @@ function test(string $prenom, string $nom, string $email, string $date, string $
   return 1;
 }
 
+require_once 'envoi_email.php'; // Inclure le fichier d'envoi d'e-mail
+
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {  // Si la requête est bien reçu
   // Vérifier si toutes les données a été envoyé
@@ -106,8 +108,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {  // Si la requête est bien reçu
         $database->exec('CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT, prenom TEXT, nom TEXT, email TEXT, date_naissance TEXT, mdp TEXT)');
         // Insertion des données dans la table
         $database->exec("INSERT INTO users (prenom, nom, email, date_naissance, mdp) VALUES ('$prenom', '$nom', '$email', '$date', '$mdp1')");
+       
+        // Envoi du mail de confirmation
         
-        // Envoi du mail de confirmation (à implémenter)
+        require_once 'envoi_email.php'; // Inclure le fichier d'envoi d'e-mail
+        
         $subject = "Confirmation d'inscription";
         $message = "Bonjour $prenom,\n\nMerci de vous être inscrit sur notre site.\n\nVeuillez cliquer sur le lien suivant pour confirmer votre adresse e-mail : [lien de confirmation].\n\nCordialement,\nL'équipe du site";
         $headers = "From: no-reply@monsite.com";
