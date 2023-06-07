@@ -31,8 +31,8 @@ $message .= "Cordialement,<br>L'équipe du site";
 // Paramètres de l'e-mail
 $to = $email;
 $subject = 'Confirmation de votre adresse e-mail';
-$headers = "From: votre-email@gmail.com\r\n";
-$headers .= "Reply-To: votre-email@gmail.com\r\n";
+$headers = "From: jeune@gmail.com\r\n";
+$headers .= "Reply-To: yourmail@gmail.com\r\n";
 $headers .= "MIME-Version: 1.0\r\n";
 $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
 
