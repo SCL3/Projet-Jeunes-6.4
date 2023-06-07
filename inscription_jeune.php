@@ -96,11 +96,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {  // Si la requête est bien reçu
     $mdp1 = $_POST["mdp1"];
     $mdp2 = $_POST["mdp2"];
     
-	$age = calculateAge($date); // Appel d'une fonction pour calculer l'âge à partir de la date de naissance
+    $age = calculateAge($date); // Appel d'une fonction pour calculer l'âge à partir de la date de naissance
     
     if ($age >= 14 && $age <= 30) { // Vérification de l'âge entre 14 et 30 ans
       if(test($prenom, $nom, $email, $date, $mdp1, $mdp2) == 1){
-        echo "Création du compte";
+        // Connexion à la base de données SQLite
+        $database = new PDO('sqlite:users.db');
+        // Création de la table si elle n'existe pas déjà
+        $database->exec('CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT, prenom TEXT, nom TEXT, email TEXT, date_naissance TEXT, mdp TEXT)');
+        // Insertion des données dans la table
+        $database->exec("INSERT INTO users (prenom, nom, email, date_naissance, mdp) VALUES ('$prenom', '$nom', '$email', '$date', '$mdp1')");
+        
+        // Envoi du mail de confirmation (à implémenter)
+        $subject = "Confirmation d'inscription";
+        $message = "Bonjour $prenom,\n\nMerci de vous être inscrit sur notre site.\n\nVeuillez cliquer sur le lien suivant pour confirmer votre adresse e-mail : [lien de confirmation].\n\nCordialement,\nL'équipe du site";
+        $headers = "From: no-reply@monsite.com";
+        // mail($email, $subject, $message, $headers);
+        
+        echo "Création du compte. Un email de confirmation a été envoyé à votre adresse.";
         // Autres actions à effectuer pour l'inscription réussie
       }
     } elseif ($age < 14) {
@@ -118,6 +131,7 @@ function calculateAge($date) {
   $age = $today->diff($birthDate)->y;
   return $age;
 }
+
   
 
  
