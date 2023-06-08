@@ -3,10 +3,10 @@ include 'envoi_email.php'; // Inclure le fichier d'envoi d'e-mail
 
 
 // Fonction pour calculer l'âge à partir de la date de naissance
-function calculateAge($date) {
-  $birthDate = new DateTime($date);
-  $today = new DateTime();
-  $age = $today->diff($birthDate)->y;
+function calculerAge($date) {
+  $naissance = new DateTime($date); 
+  $ajd = new DateTime();  // La date d'aujourd'hui
+  $age = $ajd->diff($naissance)->y;
   return $age;
 }
 
@@ -36,6 +36,7 @@ function test(string $prenom, string $nom, string $email, string $date, string $
     echo "Veuillez inscrire un email";
     return 0;
   }
+
   if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {  // Vérifie que l'email est au bon format
     echo "Le format d'email n'est pas valide";
     return 0;
@@ -81,7 +82,7 @@ function test(string $prenom, string $nom, string $email, string $date, string $
   } 
 
   // Vérification de l'âge entre 14 et 30 ans
-  $age = calculateAge($date); // Appel d'une fonction pour calculer l'âge à partir de la date de naissance
+  $age = calculerAge($date); // Appel d'une fonction pour calculer l'âge à partir de la date de naissance
   if ($age < 14) {
     echo "Vous êtes trop jeune pour vous inscrire.";
     return 0;
@@ -117,24 +118,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {  // Si la requête est bien reçu
     $mdp1 = $_POST["mdp1"];
     $mdp2 = $_POST["mdp2"];
 
-    if(test($prenom, $nom, $email, $date, $mdp1, $mdp2) == 1){
-      // Connexion à la base de données SQLite
-      $bd = new PDO('sqlite:users.sqlite');  // base de données sqlite3
-      // Création de la table si elle n'existe pas déjà
-      $bd->exec('CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT, prenom TEXT, nom TEXT, email TEXT, date_naissance TEXT, mdp TEXT)');
+    // Connexion à la base de données SQLite
+    $bd = new PDO('sqlite:users.sqlite');  // base de données sqlite3
+    // Création de la table si elle n'existe pas déjà
+    $bd->exec('CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT, prenom TEXT, nom TEXT, email TEXT, date_naissance TEXT, mdp TEXT)');
+
+    // Vérification d'un mail unique :
+    // Requête SELECT pour vérifier l'existence de l'e-mail
+    $query = "SELECT COUNT(*) FROM users WHERE email = :email";
+    $statement = $bd->prepare($query);
+    $statement->bindParam(':email', $email);
+    $statement->execute();
+        
+    $compteur = $statement->fetchColumn();  // (>0 : l'email existe déjà, =0 : l'email n'existe pas)
+    if($compteur > 0){
+      echo "Un compte est déjà enregistré avec cet email.";
+    }
+
+    if(test($prenom, $nom, $email, $date, $mdp1, $mdp2) == 1 && $compteur == 0){
       // Insertion des données dans la table
       $bd->exec("INSERT INTO users (prenom, nom, email, date_naissance, mdp) VALUES ('$prenom', '$nom', '$email', '$date', '$mdp1')");
-
-      $subject = "Confirmation d'inscription";
-      $message = "Bonjour $prenom,\n\nMerci de vous être inscrit sur notre site.\n\nVeuillez cliquer sur le lien suivant pour confirmer votre adresse e-mail : [lien de confirmation].\n\nCordialement,\nL'équipe du site";
-      $headers = array(
-        'From' => 'webmaster@example.com',
-        'Reply-To' => 'webmaster@example.com',
-        'X-Mailer' => 'PHP/' . phpversion()
-     );
-      mail($email, $subject, $message, $headers);
       
-      echo "Création du compte. Un email de confirmation a été envoyé à votre adresse.";
+      echo "Compte crée !<br>";
+
+      // Envoi du mail de confimation
+      confirmation_jeune($prenom, $nom, $email);  
+      
+     
       // Autres actions à effectuer pour l'inscription réussie
       }
      

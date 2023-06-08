@@ -7,6 +7,10 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<script>  <!-- Script pour AJAX -->
 		function connex(){  // Fonction connexion
+			// Recuperation des donnees 
+			var email = document.querySelector(".connexion input[name='email']").value;
+			var mdp = document.querySelector(".connexion input[name='mdp']").value;
+
 			// Creation de l'instance (objet)
 			if(window.XMLHttpRequest){  // On verifie si on est bien sur les nouvelles versions d'internet (Firefox, Safari, Chrome...)
 				var xhr = new XMLHttpRequest();  // On cree une instance
@@ -19,19 +23,23 @@
 			xhr.onreadystatechange = function(){
 				if(xhr.readyState === 4){  // L'etat 4 signifie que la demande est terminee et la reponse est prete
 					if(xhr.status === 200){  // Le status de la requete est OK (404 signifie introuvable)
-						//document.write(xhr.status + "  " + xhr.readyState);
-						document.getElementById("texte1").innerHTML = "Recu !" + xhr.responseText;
+						document.getElementById("texte1").innerHTML = xhr.responseText;
 					}
 					else{
-						document.write("Erreur code : " + xhr.status + "<br> Vous avez surement oublié de créer un serveur !");
-						//document.getElementById("test").textContent = "Error code : " + xhr.status;
+						document.write("Erreur code : " + xhr.status + "<br> Vous avez surement oublié de créer un serveur !");  // On ouvre une autre page si y'a erreur
 					}
 				
 				}
 			};
 			
 			xhr.open("POST", "connexion_jeune.php", true);
-			xhr.send();
+			xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");  // Définit l'entête de la requête HTTP
+			
+			// Prépare les données pour les envoyées à la page php sous forme de lien
+			var donnee = "email=" + encodeURIComponent(email) + "&mdp=" + encodeURIComponent(mdp);
+
+			// encode les donnees pour qu'elles soient envoyees
+			xhr.send(donnee);  // null pour une requete get
 		}
 
 		function inscript(){  // Fonction inscription
@@ -56,12 +64,10 @@
 			xhr.onreadystatechange = function(){
 				if(xhr.readyState === 4){  // L'etat 4 signifie que la demande est terminee et la reponse est prete
 					if(xhr.status === 200){  // Le status de la requete est OK (404 signifie introuvable)
-						//document.write(xhr.status + "  " + xhr.readyState);
 						document.getElementById("texte2").innerHTML = xhr.responseText;
 					}
 					else{
-						document.write("Erreur code : " + xhr.status + "<br> Vous avez surement oublié de créer un serveur !");
-						//document.getElementById("test").textContent = "Error code : " + xhr.status;
+						document.write("Erreur code : " + xhr.status + "<br> Vous avez surement oublié de créer un serveur !");  // On ouvre une autre page si y'a erreur
 					}
 				
 				}
@@ -74,7 +80,7 @@
 			var donnee = "prenom=" + encodeURIComponent(prenom) + "&nom=" + encodeURIComponent(nom) + "&email=" + encodeURIComponent(email) 
 			+ "&date=" + encodeURIComponent(date) + "&mdp1=" + encodeURIComponent(mdp1) + "&mdp2=" + encodeURIComponent(mdp2);
 			// encode les donnees pour qu'elles soient envoyees
-			xhr.send(donnee);  // null pour une requete get
+			xhr.send(donnee);  
 		}
 
 
