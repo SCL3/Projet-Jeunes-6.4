@@ -7,6 +7,7 @@ function calculerAge($date) {
   $naissance = new DateTime($date); 
   $ajd = new DateTime();  // La date d'aujourd'hui
   $age = $ajd->diff($naissance)->y;
+  echo $age;
   return $age;
 }
 
@@ -84,11 +85,11 @@ function test(string $prenom, string $nom, string $email, string $date, string $
   // Vérification de l'âge entre 14 et 30 ans
   $age = calculerAge($date); // Appel d'une fonction pour calculer l'âge à partir de la date de naissance
   if ($age < 14) {
-    echo "Vous êtes trop jeune pour vous inscrire.";
+    echo "Vous êtes trop jeune pour vous inscrire $age.";
     return 0;
   }
   if ($age > 30){
-    echo "Vous êtes trop vieux pour vous inscrire.";
+    echo "Vous êtes trop vieux pour vous inscrire $age.";
     return 0;
   }
 
@@ -135,7 +136,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {  // Si la requête est bien reçu
       echo "Un compte est déjà enregistré avec cet email.";
     }
 
-    if(test($prenom, $nom, $email, $date, $mdp1, $mdp2) == 1 && $compteur == 0){
+    if($compteur == 0 && test($prenom, $nom, $email, $date, $mdp1, $mdp2) == 1 ){
       // Insertion des données dans la table
       $bd->exec("INSERT INTO users (prenom, nom, email, date_naissance, mdp) VALUES ('$prenom', '$nom', '$email', '$date', '$mdp1')");
       
