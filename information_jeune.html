@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+	<title>Consultant</title>
+	<link rel="icon" type="image/png" href="Images/icone1.png">
+	<link rel="stylesheet" type="text/css" href="style.css">
+  <title>Page d'accueil du compte Jeune</title>
+ 
+</head>
+<body>
+<header>
+		<div class="rectangle">
+			<a href="projet_jeunes_index.html"> <img class="logo" src="Images/icone1.png" alt="Logo" height="160" width="270"></a>
+		</div>
+	</header>
+
+		<div class="menu">
+	<ul>
+		<li><a href="jeune.html" id="jeune">JEUNE</a></li>
+		<li><a href="referent.html" id="referent">RÉFÉRENT</a></li>
+		<li href="consultant.html" id="lien_consultant"> CONSULTANT </li>
+		<li><a href="partenaires.html" id="partenaires">PARTENAIRES</a></li>
+	</ul>
+</div>
+  <h1>Bienvenue sur votre compte Jeune</h1>
+  <h2>Votre profil</h2>
+  <h3>Modifier le profil</h3>
+  <form method="post" action="modifier_profil.php">
+    <!-- Les champs du formulaire de modification du profil -->
+    <input type="submit" value="Enregistrer les modifications">
+  </form>
+  <h3>Créer une demande de référence</h3>
+  <form method="post" action="creer_reference.php">
+    <!-- Les champs du formulaire de création de demande de référence -->
+    <input type="submit" value="Créer la demande">
+  </form>
+  <h3>Consultation de la liste de références</h3>
+  <a href="liste_references.php">Consulter la liste</a>
+  <h3>Envoi des références validées au Consultant</h3>
+  <form method="post" action="envoyer_references.php">
+    <!-- Les champs du formulaire d'envoi des références -->
+    <input type="submit" value="Envoyer les références">
+  </form>
+  <h3>Inclusion des références validées dans votre CV</h3>
+  <form method="post" action="inclusion_cv.php">
+    <!-- Les champs du formulaire d'inclusion des références dans le CV -->
+    <input type="submit" value="Inclure les références dans le CV">
+  </form>
+</body>
+</html>
