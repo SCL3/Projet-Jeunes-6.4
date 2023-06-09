@@ -236,14 +236,12 @@ h3{
   font-size: 20px;
 }
 
-tbody{
-  text-align: justify;
+table{
+  border-spacing: 40px; 
 }
 
-table{
-  text-align : justify;
-  font-family: sans-serif;
-  border-spacing: 40px; 
+table td{
+  text-align: justify;
 }
 table tr td{
   vertical-align: top;
@@ -258,13 +256,8 @@ table tr td + td + td{
   vertical-align: top;
 }
 
-.taille p{
-  font-size: 4rem;
-}
-
 .contenu-index{
   display: flex;
-  justify-content: center;
   flex-direction: column;
 }
 
@@ -277,7 +270,6 @@ table tr td + td + td{
 .carre1{
   margin-right: 100px;
   font-size: 25px;
-  text-align: center;
   color: white;
   border: 4px solid #ef037f;
   background-image: linear-gradient(to left, #ef037f, #ef037f,
@@ -301,13 +293,8 @@ table tr td + td + td{
   #8bceff, #ffffff);
 }
 
-.titreCase {
-  position: absolute;
-  top:15px;
-  left: 25px;
-}  
-
 .partie1{
+  padding-top: 20px;
   width: 200px;
   height : 80px;
   font-size: 25px;
@@ -315,6 +302,7 @@ table tr td + td + td{
 }
 
 .partie2{
+  padding-top: 20px;
   width: 200px;
   height : 80px;
   font-size: 25px;
@@ -322,6 +310,7 @@ table tr td + td + td{
 }
 
 .partie3{
+  padding-top: 20px;
   width: 200px;
   height : 80px;
   font-size: 25px;
@@ -359,16 +348,16 @@ table tr td + td + td{
 
 /*Style partenaires*/
 
-table{
+.tableau-partenaire{
   display: flex;
   justify-content: center;
   text-align: center;
 }
 
-td{
+#ligne-partenaire{
   padding: 25px;
-  text-align: center;
   justify-content: center;
+  text-align: center;
 }
 
 .image-partenaire{
