@@ -380,18 +380,32 @@ table tr td + td + td{
 
 /*Style page jeune compte  */ 
 
-.jeune_compte_div {
-  display: none;
-
-}
-
 .information-jeune{
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  text-align: center;
+  align-items: center;
 }
 
 #fonction{
   margin-top: 50px;
+}
+
+.fonctions-jeune{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 800px;
+  height: auto;
+  background-color: transparent;
+  border: 8px double black;
+  padding: 50px;
+  margin-top: 100px;
+}
+
+.fonctions-jeune input[type="submit"] {
+  width: auto;
 }
 
 /*Style consultant  */ 
