@@ -392,3 +392,12 @@ td{
   display: none;
 
 }
+
+.information-jeune{
+  justify-content: center;
+  text-align: center;
+}
+
+#fonction{
+  margin-top: 50px;
+}
