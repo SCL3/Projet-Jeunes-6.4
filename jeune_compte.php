@@ -96,51 +96,13 @@ if (!isset($_SESSION['connecte']) || $_SESSION['connecte'] !== true) {
 		// SCRIPT PAGE JEUNE_COMPTE
 
 		function afficheDiv(num){
-			var div1 = document.getElementById('div1');  //Récupération des div de la page
-            var div2 = document.getElementById('div2');
-			var div3 = document.getElementById('div3');
-			var div4 = document.getElementById('div4');
-			var div5 = document.getElementById('div5');
-
-			switch (num){
-				case 1:
-					div1.style.display = 'block';  //On affiche le div qu'on veut
-           			div2.style.display = 'none';
-					div3.style.display = 'none';
-					div4.style.display = 'none';
-					div5.style.display = 'none';
-					break;
-				case 2:
-					div1.style.display = 'none';  //On affiche le div qu'on veut
-					div2.style.display = 'block';
-					div3.style.display = 'none';
-					div4.style.display = 'none';
-					div5.style.display = 'none';
-					break;
-				case 3:
-					div1.style.display = 'none';  //On affiche le div qu'on veut
-					div2.style.display = 'none';
-					div3.style.display = 'block';
-					div4.style.display = 'none';
-					div5.style.display = 'none';
-					break;
-				case 4:
-					div1.style.display = 'none';  //On affiche le div qu'on veut
-					div2.style.display = 'none';
-					div3.style.display = 'none';
-					div4.style.display = 'block';
-					div5.style.display = 'none';
-					break;
-				case 5:
-					div1.style.display = 'none';  //On affiche le div qu'on veut
-					div2.style.display = 'none';
-					div3.style.display = 'none';
-					div4.style.display = 'none';
-					div5.style.display = 'block';
-					break;
-				default:
-					break;
+			var divs = document.getElementsByClassName("jeune_compte_div");  //Tout les divs
+			for (var i = 0; i < divs.length; i++) {
+				divs[i].style.display = "none";
 			}
+			var div = document.getElementById("div" + num);  //Le div à afficher
+			div.style.display = "block";
+			
 		}
 
 
@@ -170,43 +132,38 @@ if (!isset($_SESSION['connecte']) || $_SESSION['connecte'] !== true) {
 		<button onclick="afficheDiv(3)">Consulter liste référence</button>
 		<button onclick="afficheDiv(4)">Envoyer référence au consultant</button>
 		<button onclick="afficheDiv(5)">Inclure référence validées dans CV</button><br>
-		<div>
-
-		</div id="div1" class="jeune_compte_div">
+		<div id="div1" class="jeune_compte_div">
 			<p>Modifier le profil</p>
 			<form method="post" action="modifier_profil.php">
 				<!-- Les champs du formulaire de modification du profil -->
 				<input type="submit" value="Enregistrer les modifications">
 			</form>
+		</div>
+		<div id="div2" class="jeune_compte_div">
 			<p>Créer une demande de référence</p>
 			<form method="post" action="creer_reference.php">
 				<!-- Les champs du formulaire de création de demande de référence -->
 				<input type="submit" value="Créer la demande">
 			</form>
+		</div>
+		<div id="div3" class="jeune_compte_div">
 			<p>Consultation de la liste de références</p>
 			<a href="liste_references.php">Consulter la liste</a>
+			
+		</div>
+		<div id="div4" class="jeune_compte_div">
 			<p>Envoi des références validées au Consultant</p>
 			<form method="post" action="envoyer_references.php">
 				<!-- Les champs du formulaire d'envoi des références -->
 				<input type="submit" value="Envoyer les références">
 			</form>
+		</div>
+		<div id="div5" class="jeune_compte_div">
 			<p>Inclusion des références validées dans votre CV</p>
 			<form method="post" action="inclusion_cv.php">
 				<!-- Les champs du formulaire d'inclusion des références dans le CV -->
 				<input type="submit" value="Inclure les références dans le CV">
 			</form>
-		</div>
-		</div id="div2" class="jeune_compte_div">
-			oui
-		</div>
-		</div id="div3" class="jeune_compte_div">
-			ouioui
-		</div>
-		</div id="div4" class="jeune_compte_div">
-			ouiouioui
-		</div>
-		</div id="div5" class="jeune_compte_div">
-			ouiouiouioui
 		</div>
 	</div>
 	</body>
