@@ -1,52 +1,106 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<meta charset="UTF-8">
-	<title>Consultant</title>
-	<link rel="icon" type="image/png" href="Images/icone1.png">
-	<link rel="stylesheet" type="text/css" href="style.css">
+  <meta charset="UTF-8">
+  <title>Consultant</title>
+  <link rel="icon" type="image/png" href="Images/icone1.png">
+  <link rel="stylesheet" type="text/css" href="style.css">
 </head>
+
 <body>
-	<header>
-		<div class="rectangle">
-			<a href="projet_jeunes_index.html"> <img class="logo" src="Images/icone1.png" alt="Logo" height="160" width="270"></a>
-			<p class="titre" id="consultant">CONSULTANT</p> <br>
-			<p class="phrase"> Je donne de la valeur à ton engagement</p>
-		</div>
-	</header>
-
-		<div class="menu">
-	<ul>
-		<li><a href="jeune.html" id="jeune">JEUNE</a></li>
-		<li><a href="referent.html" id="referent">RÉFÉRENT</a></li>
-		<li id="lien_consultant"> CONSULTANT </li>
-		<li><a href="partenaires.html" id="partenaires">PARTENAIRES</a></li>
-	</ul>
-</div>
-
- <div class="header">
-      <h1>Consultant - Jeunes 6.4</h1>
+  <header>
+    <div class="rectangle">
+      <a href="projet_jeunes_index.html"> <img class="logo" src="Images/icone1.png" alt="Logo" height="160"
+          width="270"></a>
+      <p class="titre" id="consultant">CONSULTANT</p> <br>
+      <p class="phrase"> Je donne de la valeur à ton engagement</p>
     </div>
-    <div class="container">
+  </header>
+
+  <div class="menu">
+    <ul>
+      <li><a href="jeune.html" id="jeune">JEUNE</a></li>
+      <li><a href="referent.html" id="referent">RÉFÉRENT</a></li>
+      <li id="lien_consultant"> CONSULTANT </li>
+      <li><a href="partenaires.html" id="partenaires">PARTENAIRES</a></li>
+    </ul>
+  </div>
+  <!-- <div class="container">
+  <div class="donnees-utilisateur">
       <h2>Données de l'utilisateur</h2>
-      <p>Nom : <span id="nom"></span></p>
-      <p>Prénom : <span id="prenom"></span></p>
-      <p>Âge : <span id="age"></span></p>
-      <p>Ville : <span id="ville"></span></p>
-      <h2>Liste des références validées</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Nom du référent</th>
-            <th>Prénom du référent</th>
-            <th>Email du référent</th>
-            <th>Relation avec le jeune</th>
-          </tr>
-        </thead>
-        <tbody id="references">
-        </tbody>
-      </table>
+      <p class="donnees">Nom : <span id="nom"></span></p>
+      <p class="donnees">Prénom : <span id="prenom"></span></p>
+      <p class="donnees">Âge : <span id="age"></span></p>
+      <p class="donnees">Ville : <span id="ville"></span></p>
     </div>
-    <script src="script.js"></script>
+  -->
+  <div class="contenu-consultant">
+    <h1>Consultant - Jeunes 6.4</h1>
+    <div class="rectangle-consultant">
+      <div class="rectangle-cjeune">
+        <h2>Jeune</h2>
+        <label>Nom :</label>
+        <input type="text" name="nom_jeune" required><br>
+
+        <label>Prénom :</label>
+        <input type="text" name="prenom_jeune" required><br>
+
+        <label>Date de naissance :</label>
+        <input type="text" name="date_de_naissance" required><br>
+
+        <label for="email">Mail :</label>
+        <input type="email" id="email" name="email" required><br>
+
+        <label for="telephone">Numéro de téléphone :</label>
+        <input type="tel" id="telephone" name="telephone" required><br>
+
+        <label for="relation">Mon engagement :</label>
+        <input type="text" id="relation" name="relation" required><br>
+
+        <label for="duree">Durée :</label>
+        <input type="text" id="duree" name="duree" required><br>
+
+      </div>
+      <div class="rectangle-creferent">
+        <h2>Référent</h2>
+        <label>Nom :</label>
+        <input type="text" name="nom_jeune" required><br>
+
+        <label>Prénom :</label>
+        <input type="text" name="prenom_jeune" required><br>
+
+        <label>Date de naissance :</label>
+        <input type="text" name="date_de_naissance" required><br>
+
+        <label for="email">Mail :</label>
+        <input type="email" id="email" name="email" required><br>
+
+        <label for="telephone">Numéro de téléphone :</label>
+        <input type="tel" id="telephone" name="telephone" required><br>
+
+        <label for="relation">Mon engagement :</label>
+        <input type="text" id="relation" name="relation" required><br>
+
+        <label for="duree">Durée :</label>
+        <input type="text" id="duree" name="duree" required><br>
+      </div>
+    </div>
+    <h2>Liste des références validées</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Nom du référent</th>
+          <th>Prénom du référent</th>
+          <th>Email du référent</th>
+          <th>Relation avec le jeune</th>
+        </tr>
+      </thead>
+      <tbody id="references">
+      </tbody>
+    </table>
+  </div>
+  <script src="script.js"></script>
 </body>
+
 </html>
