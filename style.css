@@ -367,6 +367,8 @@ table{
 
 td{
   padding: 25px;
+  text-align: center;
+  justify-content: center;
 }
 
 .image-partenaire{
@@ -377,6 +379,7 @@ td{
 #partenaires-texte{
   font-size: 25px;
   text-align: center;
+  justify-content: center;
   color: gray;
 }
 
@@ -401,3 +404,42 @@ td{
 #fonction{
   margin-top: 50px;
 }
+
+/*Style consultant  */ 
+
+.contenu-consultant {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  margin-top: 30px;
+  font-size: 30px;
+}
+
+.rectangle-consultant {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  margin: 100px;
+}
+
+.rectangle-cjeune,
+.rectangle-creferent{
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  text-align: left;
+  width: 1000px;
+  height: auto;
+  background-color: transparent;
+  border: 5px solid #ef037f;
+  padding: 70px;
+  margin: 0 150px;
+}
+
+.rectangle-creferent{
+  border: 5px solid #1bbc00;
+}
+
