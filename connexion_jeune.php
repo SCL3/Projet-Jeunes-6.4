@@ -1,6 +1,8 @@
 <?php
-
 include 'envoi_email.php'; // Inclure le fichier d'envoi d'e-mail
+
+session_start();  // On démarre la session de l'utilisateur, pour savoir s'il est connecté sur d'autre page
+$_SESSION["connecte"] = false;
 
 function checkUserExistence(string $email) {
     // Connexion à la base de données SQLite
@@ -50,7 +52,18 @@ function verifierIdentifiant(string $email, string $mdp) {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (isset($_POST["email"], $_POST["mdp"])){
+    if ($go == 0){  // Si l'utilisateur a essayé de se connecter une fois (cette condition est toujours effectué)
+        $_SESSION['attente'] = time();  
+        $temps_ecoule = 10 - ($_SESSION['attente'] - $_SESSION['temps']);
+        if($temps_ecoule <= 0){
+            $go = 1;
+        }
+        else{
+            echo "veuillez attendre $temps_ecoule secondes";
+        }
+    
+    }
+    if (isset($_POST["email"], $_POST["mdp"]) && $go == 1){
         // Récupérer les données du formulaire de connexion
         $email = $_POST["email"]; 
         $mdp = $_POST["mdp"];
@@ -62,10 +75,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if(test($email, $mdp) == 1){
             if(verifierIdentifiant($email, $mdp)){
-                echo "Connexion ...";
+                $_SESSION["connecte"] = true;
+                echo '<meta http-equiv="refresh" content="0;url=jeune_compte.php">';  //redirige vers une autre page
+                exit;
             }
             else{
-                echo "L'identifiant ou le mot de passe est incorrect<br> (faire attendre les gens 5 sec)";
+                echo "L'identifiant ou le mot de passe est incorrect";
+                $_SESSION['temps'] = time();  // On va faire patienter la personne quelque seconde avant un nouvel essaie (Le dissuader de craquer un mot de passe de manière force)
+                $go = 0;
             }
         }
 

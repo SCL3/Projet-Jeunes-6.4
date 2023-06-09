@@ -385,3 +385,10 @@ td{
 }
 
 /*Style partenaires fin*/
+
+/*Style page jeune compte  */ 
+
+.jeune_compte_div {
+  display: none;
+
+}
