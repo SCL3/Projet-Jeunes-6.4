@@ -380,6 +380,16 @@ table tr td + td + td{
 
 /*Style page jeune compte  */ 
 
+.jeune_compte{
+  text-align: center
+
+}
+
+.jeune_compte_div {
+  display: none;
+
+}
+
 .information-jeune{
   display: flex;
   flex-direction: column;
