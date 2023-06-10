@@ -197,6 +197,40 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 				<input type="submit" value="Inclure les références dans le CV">
 			</form>
 		</div>
+	    
+	    
+	    	<div id="div6" class="jeune_compte_div">
+    			<p>Envoyer un e-mail au référent</p>
+    			<form onsubmit="envoyerMailReferent(event)">
+       			 <textarea id="messageReferent" placeholder="Écrivez votre message ici"></textarea>
+        			<button type="submit">Envoyer l'e-mail</button>
+    				</form>
+		</div>
+
+		<script>
+   		 function envoyerMailReferent(event) {
+       		 event.preventDefault(); // Empêche la soumission du formulaire
+
+       		 var message = document.getElementById("messageReferent").value;
+		
+       		 // Appel AJAX pour envoyer l'e-mail au référent
+       		 // Assurez-vous de remplacer 'URL_ENVOI_MAIL_REFERENT' par l'URL du script PHP qui envoie l'e-mail au référent
+        		var xhr = new XMLHttpRequest();
+       		 xhr.onreadystatechange = function() {
+          		  if (xhr.readyState === 4) {
+                		if (xhr.status === 200) {
+                  			  alert(xhr.responseText); // Affiche la réponse du serveur (par exemple, "E-mail envoyé avec succès")
+               			 } else {
+                   			 alert("Erreur lors de l'envoi de l'e-mail");
+                		}
+            		}
+       		 };
+        	xhr.open("POST", "URL_ENVOI_MAIL_REFERENT", true);
+        	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        	xhr.send("message=" + encodeURIComponent(message));
+    		}
+	</script>
+
 	</div>
 	</body>
 </html>
