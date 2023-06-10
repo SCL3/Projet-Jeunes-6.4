@@ -202,7 +202,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	    	<div id="div6" class="jeune_compte_div">
     			<p>Envoyer un e-mail au référent</p>
     			<form onsubmit="envoyerMailReferent(event)">
-       			 <textarea id="messageReferent" placeholder="Écrivez votre message ici"></textarea>
+       			 <textarea id="messageReferent" placeholder="Un email a été envoyé à votre référent avec succés ! Ce dernier vous contactera prochainement. En attendant, vous pouvez continuer à visiter notre site, mofifier votre profil, ajouter des éléments à celui-ci, importer votre CV ou lettre de motivation, mettre une photo de profil, voir la liste  des référents, visiter les sites de nos partenaires de Jeune 6.4."></textarea>
         			<button type="submit">Envoyer l'e-mail</button>
     				</form>
 		</div>
@@ -214,9 +214,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
        		 var message = document.getElementById("messageReferent").value;
 		
        		 // Appel AJAX pour envoyer l'e-mail au référent
-       		 // Assurez-vous de remplacer 'URL_ENVOI_MAIL_REFERENT' par l'URL du script PHP qui envoie l'e-mail au référent
+       		
         		var xhr = new XMLHttpRequest();
-       		 xhr.onreadystatechange = function() {
+       		 	xhr.onreadystatechange = function() {
           		  if (xhr.readyState === 4) {
                 		if (xhr.status === 200) {
                   			  alert(xhr.responseText); // Affiche la réponse du serveur (par exemple, "E-mail envoyé avec succès")
