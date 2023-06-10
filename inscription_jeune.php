@@ -15,25 +15,27 @@ function test(string $prenom, string $nom, string $email, string $date, string $
   // Fonction qui vérifie toute les données en fonction de chaques conditions
   
   // Vérifie que chaque valeur ne sont pas vide
-  if($prenom == ""){
+ if ($prenom === "") {
     echo "Veuillez inscrire votre prénom";
-    return 0;  // Les tests ne sont pas valide, on renvoie 0 (Faux)
+    return 0;
+  }
+
+  if ($nom === "") {
+    echo "Veuillez inscrire votre nom";
+    return 0;
   }
   if (!preg_match("/^[a-zA-Z-' ]*$/",$prenom)) {  // Vérifie que le prénom est bien composé de lettre seulement
     echo "Le prénom doit seulement être composé de lettre !";
     return 0;
   }
 
-  if($nom == ""){
-    echo "Veuillez inscrire votre nom de famille";
-    return 0;
-  }
+ 
   if (!preg_match("/^[a-zA-Z-' ]*$/",$nom)) {
     echo "Le nom de famille doit seulement être composé de lettre !";
     return 0;
   }
 
-  if($email == ""){
+  if($email === ""){
     echo "Veuillez inscrire un email";
     return 0;
   }
@@ -43,24 +45,31 @@ function test(string $prenom, string $nom, string $email, string $date, string $
     return 0;
   }
 
-  if($date == ""){
+  if($date === ""){
     echo "Veuillez inscrire une date de naissance";
     return 0;
   }
 
   // Sécurité du mot de passe 
-  if($mdp1 == ""){
+  if($mdp1 === ""){
     echo "Veuillez inscrire un mot de passe";
     return 0;
   }
-  if($mdp2 == ""){
+  if($mdp2 === ""){
     echo "Veuillez vérifier votre mot de passe";
     return 0;
   }
-  if($mdp1 != $mdp2){
-    echo "Le mot de passe de vérification est différent"; 
+  
+   if ($mdp1 === "" || $mdp2 === "") {
+    echo "Veuillez inscrire votre mot de passe";
     return 0;
   }
+
+  if ($mdp1 !== $mdp2) {
+    echo "Les mots de passe ne correspondent pas";
+    return 0;
+  }
+
   if(strlen($mdp1) <= 7){
     echo "Pour plus de sécurité, <br> le mot de passe doit contenir au moins 8 caractères";
     return 0;
@@ -81,6 +90,7 @@ function test(string $prenom, string $nom, string $email, string $date, string $
     echo "Pour plus de sécurité, <br> le mot de passe doit contenir au moins 1 caractère spécial";
     return 0;
   } 
+  
 
   // Vérification de l'âge entre 14 et 30 ans
   $age = calculerAge($date); // Appel d'une fonction pour calculer l'âge à partir de la date de naissance
@@ -124,6 +134,44 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {  // Si la requête est bien reçu
     // Création de la table si elle n'existe pas déjà
     $bd->exec('CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT, prenom TEXT, nom TEXT, email TEXT, date_naissance TEXT, mdp TEXT)');
 
+    
+  /*   $validation = test($prenom, $nom, $email, $date, $mdp1, $mdp2);
+
+    // Si la validation échoue, vous pouvez effectuer un traitement approprié (par exemple, afficher un message d'erreur)
+    if (!empty($validation)) {
+      // Traitement en cas d'erreur de validation
+      echo $validation;
+    } else {
+        // Vérification d'un mail unique :
+    // Requête SELECT pour vérifier l'existence de l'e-mail
+    $query = "SELECT COUNT(*) FROM users WHERE email = :email";
+    $statement = $bd->prepare($query);
+    $statement->bindParam(':email', $email);
+    $statement->execute();
+        
+    $compteur = $statement->fetchColumn();  // (>0 : l'email existe déjà, =0 : l'email n'existe pas)
+    if($compteur > 0){
+      echo "Un compte est déjà enregistré avec cet email.";
+    }
+
+    if($compteur == 0 && test($prenom, $nom, $email, $date, $mdp1, $mdp2) == 1 ){
+      // Insertion des données dans la table
+      $bd->exec("INSERT INTO users (prenom, nom, email, date_naissance, mdp) VALUES ('$prenom', '$nom', '$email', '$date', '$mdp1')");
+      
+      
+      echo "Les informations sont valides. Enregistrement dans la base de données...";
+      echo "Compte crée !<br>";
+
+      // Envoi du mail de confimation
+      confirmation_jeune($prenom, $nom, $email);  
+      
+     
+      // Autres actions à effectuer pour l'inscription réussie
+      }
+     
+    }*/
+    
+    
     // Vérification d'un mail unique :
     // Requête SELECT pour vérifier l'existence de l'e-mail
     $query = "SELECT COUNT(*) FROM users WHERE email = :email";
