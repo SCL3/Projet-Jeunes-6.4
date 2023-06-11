@@ -18,6 +18,8 @@ function generateToken($length = 10) {
     return $token;
 }
 
+
+// Ancienne version du token aléatoire et envoie de mail qui pourrait nous servir pour la suite 
 /* Générer un token aléatoire
 $token = generateToken();*/
 
