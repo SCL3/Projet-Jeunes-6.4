@@ -3,7 +3,7 @@ Site internet fait par Simon CHANTHRABOUTH-LIEBBE, Charles DELPECH, Mohamed Amin
 
 Il faut pas oublier de télécharger notre base de donnée Sqlite avec les commandes dans le terminal : sudo apt install -y php-sqlite3,
 sudo apt install -y sqlite3
-Après avoir récupérer tous les documents sur le GitHub de notre projet,sous linux, vous devez activer un localhost. Pour le faire, vous devez aller dans votre terminal et mettre :"php -S localhost:8080" et ensuite aller dans votre barre de recherche et taper :" localhost8080/accueil.html" pour commencer l'utilisation de notre site : 
+Après avoir récupérer tous les documents sur le GitHub de notre projet,sous linux, vous devez activer un localhost. Pour le faire, vous devez aller dans votre terminal et mettre :"php -S localhost:8080" et ensuite aller dans votre barre de recherche et taper :" localhost:8080/accueil.html" pour commencer l'utilisation de notre site : 
 
 Lorsque vous arriverez sur cette page, le logo de notre projet sera en grand avec le slogan et une rapide explication du projet en bas de la page. Il suffira alors de cliquer sur le texte : Entrer pour accéder au site 
 
