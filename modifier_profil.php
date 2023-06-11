@@ -12,12 +12,12 @@ if (isset($_SESSION['email'])) {
     $bd = new PDO('sqlite:users.sqlite');  // base de données SQLite
     $bd->exec("UPDATE users SET prenom='$prenom', nom='$nom' WHERE email='$email'");
     // Rediriger l'utilisateur vers la page d'accueil du compte Jeune
-    header("Location: index.html");
+    header("Location: jeune.html");
     exit();
   }
 } else {
   // Rediriger l'utilisateur vers la page de connexion si non connecté
-  header("Location: login.php");
+  header("Location: jeune.html ");
   exit();
 }
 ?>
