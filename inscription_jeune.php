@@ -135,10 +135,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {  // Si la requête est bien reçu
     $bd->exec('CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT, prenom TEXT, nom TEXT, email TEXT, date_naissance TEXT, mdp TEXT)');
 
     
-//    $validation = test($prenom, $nom, $email, $date, $mdp1, $mdp2);
+  /*   $validation = test($prenom, $nom, $email, $date, $mdp1, $mdp2);
 
     // Si la validation échoue, vous pouvez effectuer un traitement approprié (par exemple, afficher un message d'erreur)
- /*    if (!empty($validation)) {
+    if (!empty($validation)) {
       // Traitement en cas d'erreur de validation
       echo $validation;
     } else {

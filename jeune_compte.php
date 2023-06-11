@@ -84,8 +84,8 @@ if (!isset($_SESSION['connecte']) || $_SESSION['connecte'] !== true) {
 	<div class="menu">
 		<ul>
 			<li id=lien_jeune>JEUNE</li>
-			<li><a href="referent.html" id="referent">RÉFÉRENT</a></li>
-			<li><a href="consultant.html" id="consultant">CONSULTANT</a></li>
+			<li id="referent">RÉFÉRENT</li>
+			<li id="consultant">CONSULTANT</li>
 			<li><a href="partenaires.html" id="partenaires">PARTENAIRES</a></li>
 		</ul>
 	</div>
@@ -133,39 +133,41 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		$mdp2 = $_POST["mdp2"];
 
 		// Appel de la fonction de validation
-		$validation = validerInformations($prenom, $nom, $email, $date, $mdp1, $mdp2);
+		$validation = test($prenom, $nom, $email, $date, $mdp1, $mdp2);
 
 		if ($validation === 0) {
-    echo "Erreur de validation";
-} else {
-    // Connexion à la base de données (vous devez remplacer les valeurs par les vôtres)
-    $servername = "localhost";
-    $username = "nom_utilisateur";
-    $password = "mot_de_passe";
-    $dbname = "nom_base_de_donnees";
+    		echo "Erreur de validation";
+		} 
+		else {
+			// Connexion à la base de données (vous devez remplacer les valeurs par les vôtres)
+			$servername = "localhost";
+			$username = "nom_utilisateur";
+			$password = "mot_de_passe";
+			$dbname = "nom_base_de_donnees";
 
-    $conn = new mysqli($servername, $username, $password, $dbname);
-    if ($conn->connect_error) {
-        die("Erreur de connexion à la base de données : " . $conn->connect_error);
-    }
+			$conn = new mysqli($servername, $username, $password, $dbname);
+			if ($conn->connect_error) {
+				die("Erreur de connexion à la base de données : " . $conn->connect_error);
+		}
 
-    // Échapper les valeurs pour éviter les injections SQL
-    $prenom = $conn->real_escape_string($prenom);
-    $nom = $conn->real_escape_string($nom);
-    $email = $conn->real_escape_string($email);
-    $date = $conn->real_escape_string($date);
-    $mdp1_hash = password_hash($mdp1, PASSWORD_DEFAULT); // Hashage du nouveau mot de passe
+		// Échapper les valeurs pour éviter les injections SQL
+		$prenom = $conn->real_escape_string($prenom);
+		$nom = $conn->real_escape_string($nom);
+		$email = $conn->real_escape_string($email);
+		$date = $conn->real_escape_string($date);
+		$mdp1_hash = password_hash($mdp1, PASSWORD_DEFAULT); // Hashage du nouveau mot de passe
 
-    // Construire et exécuter la requête SQL pour mettre à jour les informations du profil
-    $sql = "UPDATE user SET prenom='$prenom', nom='$nom', email='$email', date='$date', mot_de_passe='$mdp1_hash' WHERE id_utilisateur='$id_utilisateur'";
-    if ($conn->query($sql) === true) {
-        echo "Modifications enregistrées avec succès";
-    } else {
-        echo "Erreur lors de l'enregistrement des modifications : " . $conn->error;
-    }
+		// Construire et exécuter la requête SQL pour mettre à jour les informations du profil
+		$sql = "UPDATE user SET prenom='$prenom', nom='$nom', email='$email', date='$date', mot_de_passe='$mdp1_hash' WHERE id_utilisateur='$id_utilisateur'";
+		if ($conn->query($sql) === true) {
+			echo "Modifications enregistrées avec succès";
+		} else {
+			echo "Erreur lors de l'enregistrement des modifications : " . $conn->error;
+		}
 
-    // Fermer la connexion à la base de données
-    $conn->close();
+		// Fermer la connexion à la base de données
+		$conn->close();
+	}
   }
 
 }
