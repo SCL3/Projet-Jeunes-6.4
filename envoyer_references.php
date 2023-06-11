@@ -3,7 +3,7 @@ session_start();
 
 // Vérifier si l'utilisateur est connecté
 if (!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] !== true) {
-    header("Location: login.php"); // Rediriger vers la page de connexion si l'utilisateur n'est pas connecté
+    header("Location: jeune.html"); // Rediriger vers la page de connexion si l'utilisateur n'est pas connecté
     exit;
 }
 
