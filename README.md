@@ -1,7 +1,7 @@
 # Projet-Jeunes-6.4
 Site internet fait par Simon CHANTHRABOUTH-LIEBBE, Charles DELPECH, Mohamed Amine KHALDI and Lise ZHENG pour CY-Tech  
 
-Après avoir récupérer tous les documents sur le GitHub de notre projet,sous linux, vous devez activer un localhost. Pour le faire, vous devez aller dans votre terminal et mettre :"php -s localhost8080" et ensuite aller dans votre barre de recherche et taper :" localhost8080/accueil.html" pour commencer l'utilisation de notre site :
+Après avoir récupérer tous les documents sur le GitHub de notre projet,sous linux, vous devez extraire le fichier installé. Ensuite vous devez installer SQLite3 sur votre ordinateur. Pour cela, ouvrez la commande dans le fichier, et tapez : "sudo apt install -y php-sqlite3", ainsi que : "sudo apt install -y sqlite3". Ensuite, vous devez activer un localhost. Pour le faire, vous devez aller dans votre terminal et mettre :"php -s localhost8080" et ensuite aller dans votre barre de recherche et taper :" localhost:8080/page_accueil.html" pour commencer l'utilisation de notre site :
 
 Lorsque vous arriverez sur cette page, le logo de notre projet sera en grand avec le slogan et une rapide explication du projet en bas de la page. Il suffira alors de cliquer sur le texte : Entrer pour accéder au site 
 
@@ -39,9 +39,11 @@ Vous allez donc pouvoir vous connecter avec les données fournies.
 Connexion : 
 Le jeune va pouvoir se connecter dans son espace personnel avec son email et son mot de passe si celui-ci a déjà créé un compte
 
-Lorsqu’il sera connecté, le jeune aura accès à deux nouvelles parties : 
--“faire des demandes de références”
--“demandes de références validées”
+Lorsqu’il sera connecté, le jeune aura accès à quatre nouvelles parties : 
+-"Lire/Modifier le profil"
+-"faire des demandes de références"
+-"demandes de références validées"
+-"envoyé une demande à un consultant"
 
     Vous êtes maintenant sur la page “référent.html” !
 
