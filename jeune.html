@@ -87,38 +87,38 @@
 	</script>
 </head>
 <body>
-	<header>
+	<header>  <!-- Haut de page -->
 		<div class="rectangle">
 			<a href="projet_jeunes_index.html"> <img class="logo" src="Images/icone1.png" alt="Logo" height="160" width="270"></a>
-			<p class="titre" id="jeune">JEUNE</p> <br>
+			<p class="titre" id="jeune">JEUNE</p> <br>  
 			<p class="phrase">Je donne de la valeur à mon engagement</p>
 		</div>
 	</header>
 
-	<div class="menu">
+	<div class="menu">  
 		<ul>
 			<li id=lien_jeune>JEUNE</li>
 			<li id="referent">RÉFÉRENT</li>
 			<li id="consultant">CONSULTANT</li>
-			<li><a href="partenaires.html" id="partenaires">PARTENAIRES</a></li>
+			<li><a href="partenaires.html" id="partenaires">PARTENAIRES</a></li>  <!-- Référence vers la page partenaire -->
 		</ul>
 	</div>
 
 	<div class="contenu" id="jeune">
 		<p> Décrivez votre expérience et mettez en avant ce que vous en avez retiré. </p>
-		<div class="login_parent">
-			<form class="login">
+		<div class="login_parent">  <!-- Partie connexion -->
+			<form class="login">  <!-- Le form sera envoyé a javascript (AJAX) -->
 				<div class="connexion">
 					<h2>Connexion</h2>
 					Email : <input type="email" name="email" placeholder="Email" required><br>
 					Mot de passe : <input type="password" name="mdp" placeholder="Mot de passe" required><br>
 					<p id="texte1"> </p>
-					<input type="button" name="connexion" value="Se connecter" onclick="connex()"><br>
+					<input type="button" name="connexion" value="Se connecter" onclick="connex()"><br>  <!-- Appelle la fonction dans Javascript -->>
 				</div>
 			</form>
-			<div class="barre_milieu"></div>
+			<div class="barre_milieu"></div>  <!-- Affiche une barre pour séparer les deux div -->
 			<form class="login">
-				<div class="inscription">
+				<div class="inscription">  <!-- Partie inscription -->
 					<h2> Inscription </h2>
 					<label>Prénom : </label>
 					<input type="text" name ="prenom" placeholder="Prénom" required/> <br>
