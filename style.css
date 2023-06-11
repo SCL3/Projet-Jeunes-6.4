@@ -3,24 +3,24 @@
 html, body{  
 	margin : 0;  /* Enlever la marge a droite et a gauche de l'écran */
 	height : 100%;	/* Enlever la marge a droite et a gauche de l'écran */
-	width : 100%;
+	width : 100%;  /*Définit la largeur de l'élément HTML et du corps à 100%*/
  	overflow : hidden;  /* Cacher la barre de défilement */
   font-family : 'Roboto', sans-serif;  /* police d'ecriture */
 }
 
 .rectangle{
-	display: flex;
-	position:relative;
-	width:100%;
-  	padding-top: 10px;
+	display: flex;  /* Permet d'afficher les éléments en mode flexbox */
+	position:relative;  /* Position relative pour les éléments fils positionnés à l'intérieur */
+	width:100%;  /* Largeur du rectangle à 100% */
+  padding-top: 10px;  /* Espacement intérieur en haut de l'élément */
  	background-image: linear-gradient(to right top, #ffffff, #f2f2f2, 
   	#e5e5e5, #d9d9d9, #cccccc, #c6c6c6, #c1c1c1, #bbbbbb, #bbbbbb
-  	, #bbbbbb, #bbbbbb, #bbbbbb);
+  	, #bbbbbb, #bbbbbb, #bbbbbb);  /* Dégradé blanc et gris pour le fond */
 }
 
-.titre {
-  flex-grow : 1;
-  text-align: end;
+.titre { 
+  flex-grow : 1;  /* Définit la capacité de flexion pour l'élément titre */
+  text-align: end;  /* Aligne le texte à droite */
   font-size : 80px;
   margin-top: 0.7%;
   margin-right: 3%;
@@ -28,14 +28,14 @@ html, body{
 }
 
 .phrase{
- 	position: absolute;
-  bottom:0;
+ 	position: absolute;  /* Position absolue pour l'élément dans le rectangle*/
+  bottom:0;   /* Positionne l'élément en bas */
   right: 3%;
 	display:flex;
  	text-align: right;
  	font-size : 40px;
  	font-weight: 300;
- 	color:white;
+ 	color:white;  /* Couleur du texte en blanc */
 }
 
 .logo {
@@ -45,7 +45,7 @@ html, body{
 }
 
 .title {
-	text-align: center;
+	text-align: center;  /* Centre le texte horizontalement */
 }
 
 .menu {
@@ -53,7 +53,7 @@ html, body{
 	width: 50%;
 	height: 6%;
 	display: flex;
-	justify-content: center;
+	justify-content: center;  /* Centre les éléments horizontalement */
 	align-items: center;
 	margin-left: auto;
   margin-right: auto;
@@ -64,7 +64,7 @@ html, body{
 }
 
 .menu ul {
-	list-style: none;
+	list-style: none;  /* Supprime les puces de liste */
 	display: flex;
 	margin: 5px;
 }
@@ -77,7 +77,7 @@ html, body{
 
 .menu a {
 	color: white;
-	text-decoration: none;
+	text-decoration: none;  /* Enleve la décoration de texte (lien violet)*/
 }
 
 
@@ -154,7 +154,7 @@ html, body{
 .login_parent{
   display: flex;
   position:relative;
-  border-radius: 10px;
+  border-radius: 10px;  /* Arrondie les coins du div login */
   width:95%;
   font-size:23px;
   height: 550px;
@@ -174,7 +174,7 @@ html, body{
   width:2%;
   margin-left:49%;
   color:#ef037f;
-  border-left: 3px solid;
+  border-left: 3px solid;  /* Ligne horizontale entre les deux div */
   height: 550px;
 }
 
@@ -203,7 +203,7 @@ form textarea {
   margin-bottom: 10px;
   border: 2px solid #ccc;
   border-radius: 4px;
-  box-sizing: border-box;
+  box-sizing: border-box;  /* des boites répartis dans la division totale */ 
   font-size: 1rem;
 }
 
@@ -218,9 +218,9 @@ form input[type="button"] {
   margin-top: 10px;
   margin-bottom:10px;
   border-radius: 4px;
-  cursor: pointer;
+  cursor: pointer;  /* Changle l'apparence du curseur quand la souris passe sur l'input*/ 
   font-size: 1rem;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;  /* Animation dans l'input */
 }
 
 form input[type="submit"]:hover {
@@ -241,7 +241,7 @@ table{
 }
 
 table td{
-  text-align: justify;
+  text-align: justify;  /* Aligne le texte equitablement*/
 }
 table tr td{
   vertical-align: top;
@@ -258,7 +258,7 @@ table tr td + td + td{
 
 .contenu-index{
   display: flex;
-  flex-direction: column;
+  flex-direction: column;  /* direction principale des éléments en colonne */
 }
 
 .rectangle-jeune{
@@ -408,7 +408,7 @@ table tr td + td + td{
   align-items: center;
   width: 800px;
   height: auto;
-  background-color: transparent;
+  background-color: transparent;  /* fond transparent*/
   border: 8px double black;
   padding: 50px;
   margin-top: 100px;
